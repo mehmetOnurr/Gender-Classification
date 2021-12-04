@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-data = pd.read_csv("gender_classification_v7.csv")
+data = pd.read_csv("GenderClassificationData/gender_classification_v7.csv")
 
 print(data.shape)
 
@@ -59,7 +59,7 @@ from sklearn.linear_model import LogisticRegression
 
 # scale edilmemiş
 lr = LogisticRegression()
-lr.fit(X_train,y_train)
+lr.fit(X_train,y_train.ravel())
 
 predict_class = lr.predict(X_test)
 
@@ -69,7 +69,7 @@ from sklearn.neighbors import KNeighborsClassifier
 
 knn = KNeighborsClassifier(n_neighbors= 6)
 
-knn.fit(X_train,y_train)
+knn.fit(X_train,y_train.ravel())
 
 knn_predict = knn.predict(X_test)
 
@@ -79,7 +79,7 @@ from sklearn.svm import SVC
 
 svm_class = SVC(kernel="poly")
 
-svm_class.fit(X_train,y_train)
+svm_class.fit(X_train,y_train.ravel())
 
 svc_predict = svm_class.predict(X_test)
 
@@ -89,7 +89,7 @@ from sklearn.naive_bayes import GaussianNB
 
 nb_gau = GaussianNB()
 
-nb_gau.fit(X_train,y_train)
+nb_gau.fit(X_train,y_train.ravel())
 
 nb_gau_predict = nb_gau.predict(X_test)
 
@@ -110,7 +110,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 rfc = RandomForestClassifier()
 
-rfc.fit(X_train,y_train)
+rfc.fit(X_train,y_train.ravel())
 
 rfc_predict = rfc.predict(X_test)
 
